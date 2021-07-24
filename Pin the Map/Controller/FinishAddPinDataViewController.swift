@@ -49,7 +49,7 @@ class FinishAddPinDataViewController: UIViewController {
                 AppClient.addStudentLocation(information: studentLocation) { (success, error) in
                     self.setLoading(success)
                     DispatchQueue.main.async {
-                        success == true ? self.dismiss(animated: true, completion: nil) : self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
+                        success ? self.dismiss(animated: true, completion: nil) : self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
                     }
                 }
             } else {
@@ -58,7 +58,7 @@ class FinishAddPinDataViewController: UIViewController {
                     AppClient.updateStudentLocation(information: studentLocation) { (success, error) in
                         self.setLoading(success)
                         DispatchQueue.main.async {
-                            success == true ? self.dismiss(animated: true, completion: nil) : self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
+                            success ? self.dismiss(animated: true, completion: nil) : self.showAlert(message: error?.localizedDescription ?? "", title: "Error")
                         }
                     }
                 }))
@@ -97,18 +97,9 @@ class FinishAddPinDataViewController: UIViewController {
     // MARK: Loading state
     
     func setLoading(_ loading: Bool) {
-        if loading {
-            DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
-                self.buttonEnabled(false, button: self.finishAddButton)
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.buttonEnabled(true, button: self.finishAddButton)
-            }
-        }
         DispatchQueue.main.async {
+            loading ? self.activityIndicator.startAnimating()  : self.activityIndicator.stopAnimating()
+            self.buttonEnabled(!loading, button: self.finishAddButton)
             self.finishAddButton.isEnabled = !loading
         }
     }

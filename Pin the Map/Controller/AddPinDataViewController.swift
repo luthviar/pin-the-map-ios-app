@@ -58,22 +58,22 @@ class AddPinDataViewController: UIViewController, UITextFieldDelegate {
             if let error = error {
                 self.showAlert(message: error.localizedDescription, title: "Location Not Found")
                 self.setLoading(false)
-                print("Location not found.")
-            } else {
-                var location: CLLocation?
-                
-                if let marker = newMarker, marker.count > 0 {
-                    location = marker.first?.location
-                }
-                
-                if let location = location {
-                    self.loadNewLocation(location.coordinate)
-                } else {
-                    self.showAlert(message: "Please try again later.", title: "Error")
-                    self.setLoading(false)
-                    print("There was an error.")
-                }
+                return
             }
+            
+            var location: CLLocation?
+            
+            if let marker = newMarker, marker.count > 0 {
+                location = marker.first?.location
+            }
+            
+            if let location = location {
+                self.loadNewLocation(location.coordinate)
+            } else {
+                self.showAlert(message: "Please try again later.", title: "Error")
+            }
+            self.setLoading(false)
+        
         }
     }
     
@@ -111,18 +111,9 @@ class AddPinDataViewController: UIViewController, UITextFieldDelegate {
     // MARK: Loading state
     
     func setLoading(_ loading: Bool) {
-        if loading {
-            DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
-                self.buttonEnabled(false, button: self.findLocationButton)
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.buttonEnabled(true, button: self.findLocationButton)
-            }
-        }
         DispatchQueue.main.async {
+            loading ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
+            self.buttonEnabled(!loading, button: self.findLocationButton)
             self.locationTextField.isEnabled = !loading
             self.websiteTextField.isEnabled = !loading
             self.findLocationButton.isEnabled = !loading

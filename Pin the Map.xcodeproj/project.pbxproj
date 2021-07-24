@@ -22,6 +22,7 @@
 		2F1F966826A86467000A3A56 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F966726A86467000A3A56 /* UserProfile.swift */; };
 		2F1F966B26A864F9000A3A56 /* UpdateLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F966A26A864F9000A3A56 /* UpdateLocationResponse.swift */; };
 		2F1F966E26A8662B000A3A56 /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F1F966D26A8662B000A3A56 /* PostLocationResponse.swift */; };
+		2F9E6E5126AC0221003A3DD6 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9E6E5026AC0221003A3DD6 /* AppError.swift */; };
 		2FA4494526AAE3AE00F0A93E /* AddPinDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4494426AAE3AE00F0A93E /* AddPinDataViewController.swift */; };
 		2FA4494726AAE42700F0A93E /* FinishAddPinDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4494626AAE42700F0A93E /* FinishAddPinDataViewController.swift */; };
 		2FA4494926AAE45200F0A93E /* ListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4494826AAE45200F0A93E /* ListTableViewController.swift */; };
@@ -47,6 +48,7 @@
 		2F1F966726A86467000A3A56 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		2F1F966A26A864F9000A3A56 /* UpdateLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateLocationResponse.swift; sourceTree = "<group>"; };
 		2F1F966D26A8662B000A3A56 /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
+		2F9E6E5026AC0221003A3DD6 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		2FA4494426AAE3AE00F0A93E /* AddPinDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPinDataViewController.swift; sourceTree = "<group>"; };
 		2FA4494626AAE42700F0A93E /* FinishAddPinDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishAddPinDataViewController.swift; sourceTree = "<group>"; };
 		2FA4494826AAE45200F0A93E /* ListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewController.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				2F1F966126A86354000A3A56 /* Location.swift */,
 				2F1F966726A86467000A3A56 /* UserProfile.swift */,
 				2FFDFCCB26AAD12800576F95 /* Constants.swift */,
+				2F9E6E5026AC0221003A3DD6 /* AppError.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 			files = (
 				2F1F965F26A8631D000A3A56 /* StudentInformation.swift in Sources */,
 				2F1F965B26A8628B000A3A56 /* AppClient.swift in Sources */,
+				2F9E6E5126AC0221003A3DD6 /* AppError.swift in Sources */,
 				2FA4494726AAE42700F0A93E /* FinishAddPinDataViewController.swift in Sources */,
 				2F1F965226A82C1D000A3A56 /* LoginViewController.swift in Sources */,
 				2F1F966426A8638F000A3A56 /* LoginResponse.swift in Sources */,

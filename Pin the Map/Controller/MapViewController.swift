@@ -60,8 +60,12 @@ class MapViewController: UIViewController, MKMapViewDelegate {
     // MARK: Add map annotations
     
     func getStudentsPins() {
-        self.activityIndicator.startAnimating()
+        activityIndicator.startAnimating()
         AppClient.getStudentLocations() { locations, error in
+            if let error = error {
+                self.showAlert(message: error.localizedDescription, title: "Get Student's Locations Failed.")
+                return
+            }
             self.mapView.removeAnnotations(self.annotations)
             self.annotations.removeAll()
             self.locations = locations ?? []

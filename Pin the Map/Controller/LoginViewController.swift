@@ -63,35 +63,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func handleLoginResponse(success: Bool, error: Error?) {
         setLoggingIn(false)
-        if success {
-            DispatchQueue.main.async {                
-                self.presentTabBarView(from: self)
-            }
-        } else {
-            showAlert(message: "Please enter valid credentials.", title: "Login Error")
-        }
+        success == true ? self.presentTabBarView(from: self) : showAlert(message: error?.localizedDescription ?? "Error, please try again.", title: "Login Failed")        
     }
     
     // MARK: Loading state
     
     func setLoggingIn(_ loggingIn: Bool) {
-        if loggingIn {
-            DispatchQueue.main.async {
-                self.activityIndicator.startAnimating()
-                self.buttonEnabled(false, button: self.loginButton)
-            }
-        } else {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.buttonEnabled(true, button: self.loginButton)
-            }
-        }
         DispatchQueue.main.async {
+            loggingIn ? self.activityIndicator.startAnimating() : self.activityIndicator.stopAnimating()
+            self.buttonEnabled(!loggingIn, button: self.loginButton)
             self.emailTextField.isEnabled = !loggingIn
             self.passwordTextField.isEnabled = !loggingIn
             self.loginButton.isEnabled = !loggingIn
             self.signUpButton.isEnabled = !loggingIn
-        }
+        }        
     }
     
     // MARK: Text Fields Delegate Protocol

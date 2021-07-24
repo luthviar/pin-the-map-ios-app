@@ -93,6 +93,10 @@ class ListTableViewController: UITableViewController {
     func getStudentsList() {
         setVisibilityActivityIndicator(isAnimating: true)
         AppClient.getStudentLocations() {students, error in
+            if let error = error {
+                self.showAlert(message: error.localizedDescription, title: "Get Student's Locations Failed.")
+                return
+            }
             self.students = students ?? []
             DispatchQueue.main.async {
                 self.tableView.reloadData()
